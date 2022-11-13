@@ -39,7 +39,7 @@ E_PULSE = 0.0005
 E_DELAY = 0.0005
 
 class LcdThread(threading.Thread):
-    def __init__(self, address=0x27, width=20):
+    def __init__(self, address=0x3F, width=20):
         threading.Thread.__init__(self)
         self.stopping = False
 
@@ -84,7 +84,7 @@ class LcdThread(threading.Thread):
                 squawk = ""
 
             lines = {
-                LCD_LINE_1: '{}'.format(flight['callsign'].center(self.width)),
+                LCD_LINE_1: {}.format(flight['callsign'].center(self.width)),
                 LCD_LINE_2: altLine,
                 LCD_LINE_3: '{}'.format(type.center(self.width)),
                 LCD_LINE_4: '{}'.format(squawk.center(self.width))
